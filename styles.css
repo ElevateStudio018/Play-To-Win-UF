@@ -134,13 +134,6 @@ h3 { font-size: 1.6rem; line-height: 1; }
 
 .hero { padding: 72px 0 0; }
 
-.hero__grid {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 64px;
-  align-items: end;
-}
-
 .hero__actions {
   display: flex;
   align-items: center;
@@ -151,6 +144,8 @@ h3 { font-size: 1.6rem; line-height: 1; }
 /* Lift-ticket summary */
 
 .ticket {
+  max-width: 380px;
+  margin-top: 48px;
   background: #fff;
   border: 1.5px solid var(--ink);
   border-radius: 6px;
@@ -197,7 +192,7 @@ h3 { font-size: 1.6rem; line-height: 1; }
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--paper);
+  background: var(--snow);
   border: 1.5px solid var(--ink);
 }
 .ticket__stub::before { left: -11px; clip-path: inset(0 0 0 50%); }
@@ -235,6 +230,8 @@ h3 { font-size: 1.6rem; line-height: 1; }
 .section { padding: 112px 0; }
 .section--ink { background: var(--ink); color: var(--paper); }
 .section--ink .eyebrow { color: var(--accent); }
+.section--ink h2 { margin-bottom: 0; }
+.lead--ink { color: #c9c6bf; margin-bottom: 48px; }
 .section--snow { background: var(--snow); }
 
 .split {
@@ -317,20 +314,65 @@ h3 { font-size: 1.6rem; line-height: 1; }
 .coach h3 { font-size: 2.2rem; margin-bottom: 12px; }
 .coach p { margin: 0; color: var(--ink-2); }
 
-/* Signup */
+/* Form */
 
-.signup {
+.form {
+  display: grid;
+  gap: 18px;
+  align-self: start;
   background: #fff;
   border: 1.5px solid var(--ink);
   border-radius: 6px;
   padding: 32px;
-  align-self: start;
 }
-.signup > p:first-child { margin: 0 0 8px; font-weight: 600; }
-.signup ul { margin: 0 0 28px; padding-left: 1.2em; color: var(--ink-2); }
-.signup li { padding: 3px 0; }
-.signup li::marker { color: var(--accent); }
-.signup__mail { margin: 16px 0 0; text-align: center; font-size: .95rem; color: var(--ink-2); }
+.form label {
+  display: grid;
+  gap: 6px;
+  font-size: .9rem;
+  font-weight: 600;
+}
+.form input, .form select, .form textarea {
+  width: 100%;
+  font: 400 1rem/1.4 var(--body);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 12px 14px;
+}
+.form textarea { resize: vertical; }
+.form input:focus, .form select:focus, .form textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+  border-color: transparent;
+}
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form__signup { display: grid; gap: 18px; }
+.form__signup[hidden] { display: none; }
+.form__honey { position: absolute; left: -9999px; }
+
+.form__type { display: flex; gap: 8px; border: 0; margin: 0; padding: 0; }
+.form__type legend { font-size: .9rem; font-weight: 600; margin-bottom: 8px; }
+.form__type label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.form__type label:has(input:checked) { border-color: var(--ink); background: var(--paper); }
+.form__type input { width: auto; accent-color: var(--accent); margin: 0; }
+
+.form button { border: 0; cursor: pointer; font: inherit; font-weight: 600; margin-top: 6px; }
+.form button:disabled { opacity: .6; cursor: wait; }
+.form__status { margin: 0; font-size: .95rem; }
+.form__status:empty { display: none; }
+.form__status.is-ok { color: #1f6b3a; font-weight: 600; }
+.form__status.is-error { color: var(--accent-ink); }
+.signup__mail { margin: 0; text-align: center; font-size: .95rem; color: var(--ink-2); }
 
 /* FAQ */
 
@@ -381,7 +423,6 @@ h3 { font-size: 1.6rem; line-height: 1; }
 
 @media (max-width: 960px) {
   .hero__grid, .split, .included { grid-template-columns: 1fr; gap: 40px; }
-  .ticket { max-width: 420px; }
   .days { grid-template-columns: 1fr 1fr; }
   .days li:nth-child(2) { border-right: 0; margin-right: 0; }
   .coaches { grid-template-columns: 1fr; }
@@ -408,5 +449,7 @@ h3 { font-size: 1.6rem; line-height: 1; }
   .coach { grid-template-columns: 120px 1fr; gap: 20px; }
   .coach img { width: 120px; }
   .coach h3 { font-size: 1.8rem; }
-  .signup { padding: 24px; }
+  .form { padding: 24px 20px; }
+  .form__row { grid-template-columns: 1fr; }
+  .ticket { margin-top: 36px; }
 }

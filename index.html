@@ -32,7 +32,7 @@
 <main id="top">
 
   <section class="hero">
-    <div class="wrap hero__grid">
+    <div class="wrap">
       <div class="hero__text">
         <p class="eyebrow">Freeskiläger · Lindvallen, Sälen</p>
         <h1>Kicka igång säsongen.<br>På din egen nivå.</h1>
@@ -42,24 +42,6 @@
           <a href="#lagret" class="link">Läs mer om lägret</a>
         </div>
       </div>
-
-      <aside class="ticket" aria-label="Lägret i korthet">
-        <div class="ticket__head">
-          <span>Play to Win</span>
-          <span>Freeskiläger</span>
-        </div>
-        <dl class="ticket__rows">
-          <div><dt>Datum</dt><dd>Tors 4/12 – sön 7/12</dd></div>
-          <div><dt>Plats</dt><dd>Fågelboet, Lindvallen</dd></div>
-          <div><dt>Ålder</dt><dd>9–14 år</dd></div>
-          <div><dt>Platser</dt><dd>Max 16</dd></div>
-        </dl>
-        <div class="ticket__stub">
-          <span class="ticket__label">Pris</span>
-          <span class="ticket__price">4 900 kr</span>
-          <span class="ticket__note">Allt utom resan dit</span>
-        </div>
-      </aside>
     </div>
 
     <div class="wrap">
@@ -109,7 +91,8 @@
   <section class="section section--ink" id="helgen">
     <div class="wrap">
       <p class="eyebrow">Helgen</p>
-      <h2>Fyra dagar i Lindvallen.</h2>
+      <h2>Decemberlägret.</h2>
+      <p class="lead lead--ink">Fyra dagar i Lindvallen första helgen i december. Från samling på torsdagskvällen till avslutning efter lunch på söndagen.</p>
       <ol class="days">
         <li>
           <span class="days__day">Torsdag</span>
@@ -161,21 +144,65 @@
   <section class="section section--snow" id="anmalan">
     <div class="wrap split">
       <div>
-        <p class="eyebrow">Anmälan</p>
+        <p class="eyebrow">Anmälan &amp; kontakt</p>
         <h2>Boka en plats.</h2>
-        <p class="lead">Anmälan sker via mejl. Lägret har max 16 platser och blir av när minst 6 har anmält sig.</p>
+        <p class="lead">Fyll i formuläret så hör vi av oss med bekräftelse och betalningsinfo. Lägret har max 16 platser och blir av när minst 6 har anmält sig.</p>
+    <aside class="ticket" aria-label="Lägret i korthet">
+      <div class="ticket__head">
+        <span>Play to Win</span>
+        <span>Freeskiläger</span>
       </div>
-      <div class="signup">
-        <p>Skicka ett mejl med:</p>
-        <ul>
-          <li>Åkarens namn och ålder</li>
-          <li>Om åkaren redan har liftkort i Sälen</li>
-          <li>Allergier eller annat vi behöver veta</li>
-          <li>Namn och telefonnummer till vårdnadshavare</li>
-        </ul>
-        <a class="btn btn--block" href="mailto:playtowinuf@gmail.com?subject=Anm%C3%A4lan%20Play%20to%20Win&amp;body=%C3%85karens%20namn%3A%0A%C3%85lder%3A%0AEget%20liftkort%20(ja%2Fnej)%3A%0AAllergier%2Fs%C3%A4rskilda%20behov%3A%0A%0AV%C3%A5rdnadshavare%3A%0ATelefon%3A%0A">Skriv anmälan</a>
-        <p class="signup__mail">eller mejla <a href="mailto:playtowinuf@gmail.com">playtowinuf@gmail.com</a></p>
+      <dl class="ticket__rows">
+        <div><dt>Datum</dt><dd>Tors 4/12 – sön 7/12</dd></div>
+        <div><dt>Plats</dt><dd>Fågelboet, Lindvallen</dd></div>
+        <div><dt>Ålder</dt><dd>9–14 år</dd></div>
+        <div><dt>Platser</dt><dd>Max 16</dd></div>
+      </dl>
+      <div class="ticket__stub">
+        <span class="ticket__label">Pris</span>
+        <span class="ticket__price">4 900 kr</span>
+        <span class="ticket__note">Allt utom resan dit</span>
       </div>
+    </aside>
+      </div>
+
+      <form class="form" id="kontakt" action="https://formsubmit.co/playtowinuf@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Ny anmälan/fråga via playtowin-sidan">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <fieldset class="form__type">
+          <legend>Vad gäller det?</legend>
+          <label><input type="radio" name="Ärende" value="Anmälan" checked> Anmälan</label>
+          <label><input type="radio" name="Ärende" value="Fråga"> Fråga</label>
+        </fieldset>
+
+        <div class="form__row">
+          <label>Ditt namn<input type="text" name="Namn" autocomplete="name" required></label>
+          <label>Telefon<input type="tel" name="Telefon" autocomplete="tel"></label>
+        </div>
+        <label>E-post<input type="email" name="email" autocomplete="email" required></label>
+
+        <div class="form__signup">
+          <div class="form__row">
+            <label>Åkarens namn<input type="text" name="Åkarens namn"></label>
+            <label>Ålder<input type="number" name="Ålder" min="9" max="14" inputmode="numeric"></label>
+          </div>
+          <label>Har åkaren eget liftkort i Sälen?
+            <select name="Eget liftkort">
+              <option>Nej</option>
+              <option>Ja</option>
+            </select>
+          </label>
+        </div>
+
+        <label>Meddelande<textarea name="Meddelande" rows="4" placeholder="Allergier, frågor eller annat vi behöver veta"></textarea></label>
+
+        <button type="submit" class="btn btn--block">Skicka</button>
+        <p class="form__status" role="status" aria-live="polite"></p>
+        <p class="signup__mail">Hellre mejl? <a href="mailto:playtowinuf@gmail.com">playtowinuf@gmail.com</a></p>
+      </form>
     </div>
   </section>
 
@@ -204,7 +231,7 @@
         </details>
         <details>
           <summary>Jag har en annan fråga.</summary>
-          <p>Mejla oss på <a href="mailto:playtowinuf@gmail.com">playtowinuf@gmail.com</a> så svarar vi så snart vi kan.</p>
+          <p>Använd <a href="#anmalan">formuläret</a> eller mejla <a href="mailto:playtowinuf@gmail.com">playtowinuf@gmail.com</a> så svarar vi så snart vi kan.</p>
         </details>
       </div>
     </div>
@@ -222,6 +249,41 @@
     <p><a href="mailto:playtowinuf@gmail.com">playtowinuf@gmail.com</a></p>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('kontakt');
+  const status = form.querySelector('.form__status');
+  const signup = form.querySelector('.form__signup');
+
+  form.addEventListener('change', () => {
+    signup.hidden = form.elements['Ärende'].value !== 'Anmälan';
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const button = form.querySelector('button');
+    button.disabled = true;
+    status.className = 'form__status';
+    status.textContent = 'Skickar…';
+    try {
+      const res = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      });
+      if (!res.ok) throw new Error();
+      form.reset();
+      signup.hidden = false;
+      status.classList.add('is-ok');
+      status.textContent = 'Tack! Vi har fått ditt meddelande och hör av oss snart.';
+    } catch {
+      status.classList.add('is-error');
+      status.innerHTML = 'Något gick fel. Mejla oss direkt på <a href="mailto:playtowinuf@gmail.com">playtowinuf@gmail.com</a>.';
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
 
 </body>
 </html>
